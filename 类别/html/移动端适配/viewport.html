@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>viewport</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      width: 1rem;
+      height: 1rem;
+      background-color: #aaa;
+    }
+    .line {
+      height: 1rem;
+      width: 1rem;
+      border-bottom: 1px solid #111;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">123</div>
+  <div class="line"></div>
+  <script>
+    // (function(w) {
+
+    //   const d = w.document
+    //   const h = d.documentElement
+    //   const t = null
+    //   function c() {
+    //     const a = w.innerWidth
+    //     h.style.fontSize =  a / 10 +'px'
+    //   }
+    //   w.addEventListener('resize', c, false)
+    //   c()
+    // })(window)
+
+    // function a() {
+    //   var b = 1
+    //   return function () {
+    //     console.log(b++)
+    //   }
+    // }
+
+    // var c = a()
+    // c()
+    function maopao(arr) {
+      const array = [...arr]
+      let isOk = true
+      for (let i = 0, len = arr.length; i < len - 1; i++) {
+        for(let j = i + 1; j < len; j++) {
+          console.log(1)
+          if (array[i] > array[j]) {
+            let temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
+            isOk = false 
+          }
+        }
+        if (isOk) {
+          break
+        }
+        console.log(2)
+      }
+      return array
+    }
+
+    var a = maopao([1,2,3,4,20,5,6,7,8,9,12,10])
+    // var a = maopao([10,9,8,7,6,5,4,3,2])
+  </script>
+</body>
+
+</html>

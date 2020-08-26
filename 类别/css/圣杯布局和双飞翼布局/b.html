@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>双飞翼</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .header {
+      background-color: #999;
+      height: 80px;
+      text-align: center;
+      line-height: 80px;
+    }
+
+    .container {
+      float: left;
+      border: 1px dashed red;
+      height: 150px;
+      width: 100%;
+    }
+
+    .center {
+      padding-left: 200px;
+      padding-right: 150px;
+    }
+
+    .left {
+      float: left;
+      border: 1px dashed yellow;
+      height: 150px;
+      width: 200px;
+      position: relative;
+      margin-left: -100%;
+    }
+
+    .right {
+      float: left;
+      border: 1px dashed green;
+      height: 150px;
+      width: 150px;
+      position: relative;
+      margin-left: -150px;
+    }
+
+    .footer {
+      clear: both;
+      background-color: #999;
+      height: 80px;
+      text-align: center;
+      line-height: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">我是头部</div>
+  <div class="container">
+    <div class="center">中间</div>
+  </div>
+  <div class="left">左侧</div>
+  <div class="right">右侧</div>
+  <div class="footer">我是底部</div>
+</body>
+
+</html>

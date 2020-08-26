@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>es5和es6区别.html</title>
+</head>
+
+<body>
+  <script>
+    {
+      // 1. 变量声明,存在暂时性死区
+
+      // const foo = new Foo()
+      // class Foo {
+      //   constructor() {
+      //     this.foo = 23
+      //   }
+      // }
+    }
+
+
+    {
+      // 2. class内部启用严格模式
+
+      // class Foo {
+      //   constructor() {
+      //     foo = 23
+      //   }
+      // }
+      // const foo = new Foo()
+    }
+
+    {
+      // 3. class方法不可枚举
+      // class Foo {
+      //   constructor() {
+      //     this.foo = 23
+      //   }
+
+      //   answer() {
+      //     return 23
+      //   }
+
+      //   static print() {
+      //     console.log(this.foo)
+      //   }
+      // }
+
+      // const barkeys = Object.keys(Foo) // -> []
+      // console.log(barkeys)
+      // const barprotokeys = Object.keys(Foo.prototype) // -> []
+      // console.log(barprotokeys)
+    }
+
+    {
+      // 4. class方法没有prototype 不能使用new调用
+      // function Bar() {
+      //   this.bar = 23
+      // }
+
+      // Bar.answer = function () {
+      //   return 23
+      // }
+
+      // Bar.prototype.print = function () {
+      //   console.log(this.bar)
+      // }
+      // const bar = new Bar()
+      // const answer = new Bar.answer()
+
+      // class Foo {
+      //   constructor() {
+      //     this.foo = 23
+      //   }
+
+      //   answer() {
+      //     return 23
+      //   }
+
+      //   static print() {
+      //     console.log(this.foo)
+      //   }
+      // }
+
+      // const foo = new Foo()
+      // const answer = new foo.answer() // Uncaught TypeError: foo.answer is not a constructor
+      // const print = new Foo.print() // Uncaught TypeError: Foo.print is not a constructor
+    }
+
+    {
+      // // 5. class必须使用new
+      // class Foo {
+      //   constructor() {
+      //     this.foo = 23
+      //   }
+      // }
+
+      // const foo = Foo()
+    }
+
+    // 6. class内部无法重写类名
+    function Bar() {
+      Bar = 'Baz'
+      this.bar = 23
+    }
+
+    const bar = new Bar()
+    // Bar: 'Baz'
+    // bar: Bar {bar: 42} 
+
+    class Foo {
+      constructor() {
+        this.foo = 23
+        Foo = 'Fol'
+      }
+    }
+    const foo = new Foo() //Uncaught TypeError: Assignment to constant variable.
+  </script>
+</body>
+
+</html>

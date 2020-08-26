@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实现new的过程</title>
+  <style>
+    .box{
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p></p>
+  </div>
+  <script>
+
+    function Foo(name, age) {
+      this.name = name
+      this.age = age
+    }
+
+    const foo = new Foo('dz', 23)
+    console.log(foo)
+    function Foo1(name, age) {
+      this.name = name
+      this.age = age
+    }
+
+    function _new() {
+      const obj = {}
+      const constructor = Array.prototype.shift.call(arguments) //获取构造函数
+      obj.__proto__ = constructor.prototype
+      console.log(arguments)
+      const result = constructor.apply(obj, arguments) // obj调用构造函数
+      return Object.prototype.toString.call(result) === '[object Object]' ? result : obj //返回结果, 原来构造函数显示返回了对象, 那么new就将这个对象返回, 反之就返回new内部创建的对象
+    }
+
+    const foo1 = _new(Foo1, 'dz', 23)
+    console.log(foo1)
+  </script>
+</body>
+
+</html>

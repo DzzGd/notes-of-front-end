@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>继承测试</title>
+</head>
+
+<body>
+  <script>
+    // 子类访问父类静态方法
+
+    // // class 继承
+    // {
+    //   class Person {
+    //     constructor(name) {
+    //       this.name = name
+    //     }
+    //     sayName() {
+    //       return this.name
+    //     }
+    //     static walk() {
+    //       console.log('i can walk, because im a human')
+    //     }
+    //   }
+
+    //   class Tom extends Person {
+    //     constructor(name, age, height) {
+    //       super(name)
+    //       this.age = age
+    //       this.like = 'apple'
+    //     }
+
+    //     sayMyself() {
+    //       return `my name is ${super.sayName()} i am ${this.age} years old and i like ${this.like}`
+    //     }
+
+    //   }
+
+    //   const tom = new Tom('tom', 23, 183)
+    //   Tom.__proto__.walk() // 可以访问父类的静态方法
+    //   tom.__proto__.__proto__.constructor.walk()
+    // }
+    // // 组合继承
+    // {
+    //   function Father(name) {
+    //     this.name = name
+    //     this.friends = ['lisa', 'tom']
+    //   }
+    //   Father.prototype.sayName = function () {
+    //     console.log(this.name)
+    //   }
+    //   Father.walk = function () {
+    //     console.log('i can walk, because im a human')
+    //   }
+    //   function Son(name, age) {
+    //     Father.call(this, name)
+    //     this.age = age
+    //   }
+    //   function oObject(obj) {
+    //     function F() { }
+    //     F.prototype = obj
+    //     return new F()
+    //   }
+    //   function inheritPrototype(subType, superType) {
+    //     const prototype = oObject(superType.prototype)
+    //     prototype.constructor = subType
+    //     subType.prototype = prototype
+    //   }
+
+    //   inheritPrototype(Son, Father)
+    //   const son1 = new Son('dz', 23)
+    //   son1.__proto__.__proto__.constructor.walk()
+    //   Son.prototype.__proto__.constructor.walk()
+    // }
+
+    {
+      function People(name) {
+        this.name = name
+      }
+      People.prototype.sayName = function () {
+        console.log(this.name)
+      }
+      function Teen(name, age) {
+        People.call(this, name)
+        this.age = age
+      }
+      // function Obj(obj) {
+      //   function F() { }
+      //   F.prototype = obj
+      //   return new F()
+      // }
+      // function inheritPrototype(subType, superType) {
+      //   const prototype = Obj(superType.prototype)
+      //   prototype.constructor = subType
+      //   prototype.sayAge = function () { console.log(this.age) }
+      //   subType.prototype = prototype
+      // }
+      Object.setPrototypeOf(Teen.prototype, People.prototype)
+      Object.setPrototypeOf(Teen, People)
+      // inheritPrototype(Teen, People)
+      const boy = new Teen('dz', 23)
+      const girl = new Teen('dzz', 24)
+      // boy.sayAge()
+      // boy.sayName()
+      console.log(Teen.__proto__ === People)
+    }
+
+
+
+    {
+      class People {
+        constructor(name) {
+          this.name = name
+        }
+        sayName() {
+          return this.name
+        }
+      }
+      People.haha = 'haha'
+      class Teen extends People {
+        constructor(name, age) {
+          super(name)
+          this.age = age
+        }
+        sayAge() {
+          const name = super.sayName()
+          console.log(`my name is ${name}, and my age is ${this.age}`)
+        }
+      }
+
+      console.log(Teen.__proto__ === People)
+      console.log(Teen.__proto__.haha)
+    }
+  </script>
+</body>
+
+</html>

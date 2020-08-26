@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>弹性小球插件封装</title>
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #box {
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      cursor: move;
+      border-radius: 50%;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+  </style>
+  <script src="./js/ball插件封装版.js"></script>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script>
+    const ball = new DRAG(document.getElementById('box'))
+    ball.flexMOve(0.99)
+  </script>
+</body>
+
+</html>

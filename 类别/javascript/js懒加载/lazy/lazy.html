@@ -1,0 +1,103 @@
+<!doctype html> <!-- 声明使用html5开发规范 -->
+<html>
+
+<head>
+  <!-- 网页头部，给浏览器看的 -->
+  <meta charset="UTF-8"> <!-- 万国码，统一的字符编码 -->
+  <meta name="Author" content=""> <!-- 作者：谁写的 -->
+  <meta name="Keywords" content=""> <!-- 关键词 -->
+  <meta name="Description" content=""> <!-- 描述：这个网页、网站是干嘛的 -->
+  <link rel="shortcut icon" href="#" type="image/jpg">
+
+  <title>Document</title> <!-- 网页标题 -->
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      /* overflow: hidden; 
+				background: url("../女孩子 咖啡馆 书 甜点 - 副本.jpg") no-repeat center 0/cover;
+				height: 100%; */
+      background-color: skyblue;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      width: 50%;
+      margin: 100px auto;
+      background-color: #747474;
+    }
+
+    img {
+      width: 270px;
+      height: 240px;
+      margin: 10px 0 0 0;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <img src="img/main/1.jpg" width="1920" height="1080">
+    <img src="img/main/2.jpg" width="1920" height="1080">
+    <img src="img/main/3.jpg" width="1920" height="1080">
+    <img src="img/main/4.jpg" width="1920" height="1080">
+    <img src="img/main/5.jpg" width="1920" height="1080">
+    <img src="img/main/6.jpg" width="1920" height="1080">
+    <img src="img/main/7.jpg" width="1920" height="1080">
+    <img src="img/main/8.jpg" width="1920" height="1080">
+    <img src="img/main/9.jpg" width="1920" height="1080">
+    <img src="img/main/10.jpg" width="1920" height="1080">
+    <img src="img/main/11.jpg" width="1920" height="1080">
+    <img src="img/main/12.jpg" width="1920" height="1080">
+    <img src="img/main/13.jpg" width="1920" height="1080">
+    <img src="img/main/14.jpg" width="1920" height="1080">
+    <img src="img/main/15.jpg" width="1920" height="1080">
+    <img src="img/main/16.jpg" width="1920" height="1080">
+    <img src="img/main/17.jpg" width="1920" height="1080">
+    <img src="img/main/18.jpg" width="1920" height="1080">
+    <img src="img/main/19.jpg" width="1920" height="1080">
+    <img src="img/main/20.jpg" width="1920" height="1080">
+    <img src="img/main/21.jpg" width="1920" height="1080">
+    <img src="img/main/22.jpg" width="1920" height="1080">
+    <img src="img/main/23.jpg" width="1920" height="1080">
+    <img src="img/main/24.jpg" width="1920" height="1080">
+    <img src="img/main/25.jpg" width="1920" height="1080">
+    <img src="img/main/26.jpg" width="1920" height="1080">
+    <img src="img/main/27.jpg" width="1920" height="1080">
+    <img src="img/main/28.jpg" width="1920" height="1080">
+    <img src="img/main/29.jpg" width="1920" height="1080">
+    <img src="img/main/30.jpg" width="1920" height="1080">
+    <img src="img/main/31.jpg" width="1920" height="1080">
+    <img src="img/main/32.jpg" width="1920" height="1080">
+    <img src="img/main/33.jpg" width="1920" height="1080">
+    <img src="img/main/34.jpg" width="1920" height="1080">
+    <img src="img/main/35.jpg" width="1920" height="1080">
+    <img src="img/main/36.jpg" width="1920" height="1080">
+    <img src="img/main/37.jpg" width="1920" height="1080">
+    <img src="img/main/38.jpg" width="1920" height="1080">
+    <img src="img/main/39.jpg" width="1920" height="1080">
+    <img src="img/main/40.jpg" width="1920" height="1080">
+  </div>
+</body>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery.lazyload.js"></script>
+<script>
+  $(function () {
+    $("img").lazyload({
+      placeholder: "img/main/loading.gif", //用图片提前占位
+      effect: "fadeIn", //载入使用何种效果,effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
+      threshold: -200, //提前开始加载
+    })
+  });
+</script>
+
+</html>

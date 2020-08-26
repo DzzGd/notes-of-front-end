@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>深浅拷贝</title>
+</head>
+
+<body>
+  <script>
+    {
+      function copy(oldArr, newArr) {
+        return oldArr.concat(newArr)
+      }
+
+      let oldarr = [1, 2, 3]
+      let newarr = [4, 5, 6]
+
+      let ret = copy(oldarr, newarr)
+      console.log(ret)
+      oldarr[0] = 'old'
+      console.log(ret)
+
+      let a = [1, 2, 3, 4]
+      let ret1 = a.slice()
+      console.log(ret1)
+      a[0] = 'dz'
+      console.log(ret1)
+    }
+
+    {
+      const arr = [{ name: 'dz' }, ['old']]
+      const new_arr = arr.concat()
+      arr[0].name = 'dz1'
+      arr[1][0] = 'new'
+
+      console.log(arr) // [{ name: 'dz1', ['old'] }]
+      console.log(new_arr) // [{ name: 'dz1', ['old'] }]
+    }
+    {
+      const arr = [function foo() { console.log('dz') }]
+      console.log(JSON.parse(JSON.stringify(arr)))
+    }
+
+    function shallowCopy(obj) {
+      if (typeof obj !== 'object') return console.error('the argument of first is not a obj')
+      let newObj = obj instanceof Array ? [] : {}
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          newObj[key] = obj[key]
+        }
+      }
+    }
+
+
+    function deepCopy(obj) {
+      if (typeof obj !== 'object') console.error('the argument of first is not a obj')
+      let new_obj = obj instanceof Array ? [] : {}
+
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          const val = obj[key]
+          new_obj[key] = typeof val === 'object' ? deepCopy(val) : val
+        }
+      }
+      return new_obj
+    }
+
+    var a = { list: [1, 2, 3], info: { name:'dz'}}
+
+    var b = deepCopy(a)
+    console.log(b)
+  </script>
+
+</body>
+
+</html>

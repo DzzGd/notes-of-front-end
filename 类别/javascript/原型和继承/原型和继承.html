@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>原型和继承</title>
+</head>
+
+<body>
+  <script>
+    {
+      // 组合继承
+      // function Father(name) {
+      //   this.name = name
+      //   this.colors = ['red', 'blue', 'green']
+      // }
+      // Father.prototype.sayName = function () {
+      //   console.log(this.name)
+      // }
+
+      // function Son(name, age) {
+      //   Father.call(this, name) //1. 调用一次
+      //   this.age = age
+      // }
+      // Son.prototype = new Father //2. 调用一次
+      // Son.prototype.sayAge = function () {
+      //   console.log(this.age)
+      // }
+      // Son.prototype.constructor = Son
+      // console.log(Son.prototype)
+      // const son = new Son('dz', 23)
+      // console.log(son)
+      // son.colors.push('yellow')
+
+      // const son1 = new Son('dz1', 24)
+      // console.log(son1.colors) //-- > ['red', 'blue', 'green']
+    }
+
+
+    //-----------------------------------------------------------
+
+
+
+    // 寄生组合
+    // function Father(name) {
+    //   this.name = name
+    //   this.friends = ['lisa', 'tom']
+    // }
+    // Father.prototype.sayName = function () {
+    //   console.log(this.name)
+    // }
+    // function Son(name, age) {
+    //   Father.call(this, name)
+    //   this.age = age
+    // }
+    // function oObject(obj) {
+    //   function F() { }
+    //   F.prototype = obj
+    //   return new F()
+    // }
+    // function inheritPrototype(subType, superType) {
+    //   const prototype = oObject(superType.prototype)
+    //   prototype.constructor = subType
+    //   subType.prototype = prototype
+    // }
+
+    // inheritPrototype(Son, Father)
+    // const son1 = new Son('dz', 23)
+    // const son2 = new Son('dz1', 24)
+    // console.log(son1)
+    // son1.friends.push['alice']
+    // console.log(son2.friends)
+
+    // console.log(Father.__proto__)
+
+
+
+    // // class 继承
+    // class Person {
+    //   constructor(name) {
+    //     this.name = name
+    //   }
+    //   sayName() {
+    //     return this.name
+    //   }
+    // }
+
+    // class Tom extends Person {
+    //   constructor(name, age, height) {
+    //     super(name)
+    //     console.log(this)
+    //     this.age = age
+    //     this.like = 'apple'
+    //   }
+
+    //   sayMyself() {
+    //     return `my name is ${super.sayName()} i am ${this.age} years old and i like ${this.like}`
+    //   }
+    // }
+
+    // const tom = new Tom('tom', 23, 183)
+    // console.log(tom.sayMyself())
+    // console.log(Tom.__proto__)
+
+    
+  </script>
+</body>
+
+</html>

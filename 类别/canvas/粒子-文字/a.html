@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>粒子-文字</title>
+  <style>
+    html,
+    body {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    #canvas {
+      /* height: 370px; */
+      /* width: 100%; */
+
+      /* position: absolute;
+      top: 0;
+      left: 0; */
+      background-color:  #44BC8C;
+    }
+
+    #input {
+      color: #ccc;
+      outline: none;
+      border: 1px solid #aaa;
+      height: 30px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      z-index: 1;
+      position: absolute;
+      bottom: calc(50% - 100px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    #btn {
+      box-sizing: border-box;
+      padding: 0;
+      border: 1px solid #aaa;
+      color: #ccc;
+      z-index: 1;
+      height: 30px;
+      outline: none;
+      border: 1px solid #aaa;
+    }
+
+    #new_canvas {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <input type="text" id="input">
+    <button id="btn">CONFIRM</button>
+  </div>
+
+  <canvas id="canvas"></canvas>
+  <script src="./a.js"></script>
+</body>
+
+</html>
